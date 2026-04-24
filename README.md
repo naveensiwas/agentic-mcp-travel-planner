@@ -23,7 +23,7 @@ Example prompt:
 ## 🗂️ Project Structure
 
 ```text
-MCP_App/
+agentic-mcp-orchestration-travel-planner/
 ├── multi_agent_multi_mcp_client.py      # Main multi-agent entry point
 ├── single_agent_multi_mcp_client.py     # Single-agent MCP smoke-test client
 ├── README.md
