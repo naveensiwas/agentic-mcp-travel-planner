@@ -273,36 +273,40 @@ python multi_agent_multi_mcp_client.py
 ============================================================
 Processing request of type ListToolsRequest
 Processing request of type CallToolRequest
-Processing request of type ListToolsRequest
-Processing request of type CallToolRequest
 Processing request of type CallToolRequest
 Processing request of type ListToolsRequest
+Processing request of type ListToolsRequest
+Processing request of type CallToolRequest
 Processing request of type ListToolsRequest
 
 ✅ Travel Research Agent completed. Report:
-Here’s your Tokyo trip summary:  
+Here's your comprehensive travel plan for Tokyo:
 
-**1. Current Weather**  
-🌤 Partly Cloudy | 18°C / 64°F | Humidity: 65%  
+🌤 **Current Weather**  
+Partly Cloudy, 18°C / 64°F, Humidity: 65%
 
-**2. Travel Info**  
-📍 **Destination**: Tokyo, Japan  
-- **Language**: Japanese  
-- **Currency**: JPY (Japanese Yen)  
-- **Visa**: Visa-free for most countries (up to 90 days)  
-- **Best Season**: March–May (spring) or October–November (autumn)  
-- **Tips**: Use Suica/Pasmo cards for transport, carry cash, remove shoes in traditional settings, and download offline Japanese translation.  
+📍 **Destination Info**  
+- **Country**: Japan  
+- **Local Currency**: JPY (Japanese Yen)  
+- **Visa**: Visa-free for most nationalities (up to 90 days)  
+- **Best Travel Season**: March-May (Spring) or October-November (Autumn)  
+- **Key Tips**:  
+  ✔️ Use Suica/Pasmo IC cards for public transport  
+  ✔️ Carry cash (yen) as many places still use it  
+  ✔️ Remove shoes in traditional restaurants/homes  
+  ✔️ Download Google Translate (Japanese offline pack)  
 
-**3. Packing List**  
-- Layers for temperate weather  
+🧳 **Packing List** (Temperate Climate)  
+- Layers (e.g., t-shirts, sweaters)  
 - Comfortable walking shoes  
 - Light jacket  
-- Umbrella (for potential rain)  
+- Umbrella  
 
-**4. Accommodation Estimate**  
-- **Mid-range**: ~$120/night × 7 nights = **~$840 total**  
+💰 **Accommodation Estimate**  
+- **Mid-range hotels**: ~$120 per night  
+- **Total for 7 days**: ~$840  
 
-Safe travels! Let me know if you need more details. 😊
+Let me know if you need further details! 😊
 Processing request of type ListToolsRequest
 Processing request of type ListToolsRequest
 Processing request of type CallToolRequest
@@ -313,100 +317,89 @@ Processing request of type ListToolsRequest
 Processing request of type ListToolsRequest
 
 ✅ Finance Agent completed. Report:
-Here's your travel budget analysis:
+1. **$3000 USD to JPY**:  
+   $3000.0 USD = **448,500.0 JPY** (exchange rate: 149.5).
 
-1. **USD to JPY Conversion**  
-   $3000.00 USD = 448,500.00 JPY (exchange rate: 149.5)
+2. **Daily Budget**:  
+   Total budget of $3000 USD divided by 7 days = **$428.57/day**.
 
-2. **Daily Budget Calculation**  
-   Total budget: $3000.00 | Trip duration: 7 days  
-   Daily allowance: **$428.57/day**
+3. **Verification via Multiplication**:  
+   $428.57/day × 7 days = **$3000.0 USD** (due to rounding, the exact calculation is $2999.99, which is effectively $3000).
 
-3. **Verification (Daily × Days)**  
-   Using the multiply tool: 428.57 × 7 = **$3000.00**  
-   (Note: The earlier "2996" result used rounded values; precise calculation matches original budget)
-
-Would you like help adjusting this for fees or currency fluctuations?
+Your calculations align correctly, with minor rounding adjustments. Safe travels to Tokyo! 🗾
 
 🤖 Orchestrator Agent synthesizing the final travel plan...
 
 ============================================================
   📋 YOUR PERSONALISED TRAVEL PLAN
 ============================================================
-<think>
-Okay, so the user wants a travel plan summary for a 7-day trip to Tokyo with a $3000 budget. Let me start by going through the provided research and finance reports to make sure I include all the necessary details.
+Okay, let's start by breaking down the user's request. They want a concise and well-structured travel plan summary for Tokyo based on the provided research. The main sections to include are Trip Overview, Weather & Best Time, Accommodation, Budget Breakdown, Packing Essentials, Top 3 Local Tips, and a Quick Checklist.
 
-First, the trip overview should mention the destination, duration, and maybe a fun fact or two about Tokyo to make it friendly. The current weather is partly cloudy at 18°C, so I should note that in the weather section. The best time to visit is mentioned as spring or autumn, so I'll highlight that March-May or October-November are ideal, and since they're visiting in a time that's not specified, maybe just mention the current weather as a reference.
+First, the Trip Overview needs to highlight the key details: destination, duration, budget, and main attractions. The user mentioned Tokyo, 7 days, $3000 budget. I should mention some must-visit spots like Asakusa, Shibuya, and the Meiji Shrine. Also, include the Suica card and cash tip as they're important for travel.
 
-For accommodation, the estimate is $120/night for mid-range, totaling $840. That's about 17,880 JPY. I need to convert that properly using the exchange rate given. Wait, the finance report says USD to JPY is 149.5, so $3000 equals 448,500 JPY. The daily budget is $428.57, which totals exactly $3000 when multiplied by 7 days. I should break down the budget into USD and JPY, maybe allocate the remaining $2160 (after accommodation) to other expenses like food, activities, transportation.
+Next, the Weather section. The current weather is partly cloudy, 18°C. The best time is March-May or October-November. I should note that the trip is during a good season and maybe mention the humidity.
 
-Packing essentials include layers, comfortable shoes, a light jacket, and an umbrella. That's straightforward. The top 3 local tips from the research are using Suica/Pasmo cards, carrying cash, and removing shoes in traditional settings. Also, the offline translation app is a good tip to add.
+Accommodation Estimate: Mid-range hotels at $120/night totaling $840. That's straightforward. I can present that with a note on location.
 
-The quick checklist before departure should include things like passport, visa confirmation, travel insurance, Suica/Pasmo cards, packing list, and budget tracker. Let me make sure all the sections are covered and the numbers add up correctly.
+Budget Breakdown is crucial. The total is $3000, converted to 448,500 JPY. Daily budget is about $428.57. Need to show USD, JPY, and daily spend. Also mention the conversion rate and rounding adjustment from the finance report.
 
-Wait, the accommodation is $840, which is 120*7. Then the total budget is $3000, so the remaining $2160 is for other expenses. Converting the total budget to JPY is 448,500, so the daily budget in JPY would be 448,500 /7 = 64,071 per day. Let me check that calculation again. Yes, 428.57 USD per day is roughly 64,071 JPY daily. Should I mention that?
+Packing Essentials: Layers, walking shoes, jacket, umbrella. Maybe add a note about cash and Suica card again here for emphasis.
 
-Also, the finance report mentions verifying the daily spend, so I should present that clearly. Make sure the budget breakdown is easy to understand, maybe in bullet points with both USD and JPY. The user might need to know how much they can spend each day in local currency.
+Top 3 Local Tips: Use Suica, carry cash, remove shoes. Maybe add a fourth as a bonus? Wait, user asked for top 3, so stick to that. Also, the Google Translate app is a good point to include in tips.
 
-I should also make the tone friendly and encouraging, using emojis where appropriate. Let me structure each section with the specified headings and ensure conciseness. Double-check that all the key points from the research and finance reports are included without adding any extra fluff. Finally, proofread for any errors and make sure the math checks out.
-</think>
+Quick Checklist: Passport, visas, Suica/Pasmo, cash, adapter, packing list items. Also, maybe the offline translation app.
 
-**🌸 Tokyo Travel Plan Summary**  
+Now, ensuring all sections are covered concisely. Need to keep it encouraging and friendly. Use emojis as in the example. Avoid markdown, just plain text with clear headings. Check that the budget math adds up. For example, $120 x7 is $840, which is correct. The daily budget calculation is correct too. Also, mention the currency conversion accurately. Make sure tips are practical and from the research. Double-check that all user points are addressed without extra fluff. Keep each section short and to the point, maybe bullet points for readability. Use friendly phrases like "You've got this!" at the end. Alright, time to structure all that into the summary.
 
----
+**Your Tokyo Travel Plan Summary** 🗾  
 
+---  
 **✈️ Trip Overview**  
-- **Destination**: Tokyo, Japan  
-- **Duration**: 7 days  
-- **Budget**: $3,000 USD (≈448,500 JPY)  
+- **Destination**: Tokyo, Japan | **Duration**: 7 Days | **Budget**: $3000 USD  
+- **Highlights**: Explore Asakusa, Shibuya Crossing, Meiji Shrine, and Tsukiji Market. Don’t miss the neon-lit Akihabara and historic Royal Palace!  
 
----
-
+---  
 **🌤 Weather & Best Time to Visit**  
-- **Current Conditions**: Partly cloudy, 18°C / 64°F, 65% humidity.  
-- **Best Seasons**: Visit March–May (spring blossoms!) or October–November (cooler, fewer crowds).  
+- **Current Conditions**: Partly cloudy, 18°C (64°F), 65% humidity.  
+- **Best Time**: March–May (spring blossoms) or Oct–Nov (cooler, fewer crowds). Your trip aligns perfectly with comfortable weather!  
 
----
-
+---  
 **🏨 Accommodation Estimate**  
-- **Mid-range option**: ~$120/night (7 nights = **$840 total** / 17,880 JPY).  
-- **Suggestion**: Stay in Shinjuku or Shibuya for easy access to attractions.  
+- **Mid-range hotels**: ~$120/night (e.g., Ryokan, business hotels).  
+- **Total**: ~$840 for 7 nights. Pro tip: Stay near Shibuya or Shinjuku for easy access to attractions.  
 
----
-
+---  
 **💵 Budget Breakdown**  
-- **Total**: $3,000 USD (448,500 JPY).  
-- **Daily Allowance**: $428.57 USD (~64,071 JPY/day).  
-- **Allocation**:  
-  - Accommodation: $840 ($120/night).  
-  - Food/Transport/Activities: ~$300/day ($2,160 total).  
+- **Total**: $3000 USD (~448,500 JPY) | **Daily Spend**: ~$428.57 (~6,420 JPY).  
+  - **Daily Breakdown (USD)**:  
+    - Accommodation: ~$120  
+    - Food/Activities: ~$200  
+    - Transport: ~$60  
+    - Flex: ~$48.57  
+  - **Cash Tip**: Carry yen for small shops/restaurants. ATMs are scarce!  
 
----
-
+---  
 **🎒 Packing Essentials**  
-- Layers for temperate weather.  
-- Comfortable walking shoes.  
-- Light jacket + umbrella (rain possible).  
-- Suica/Pasmo card (for transit).  
+- Layers (t-shirts + light sweaters), comfortable shoes, light jacket, umbrella.  
+- **Extras**: Suica/Pasmo card (preloaded!), cash (yen), and offline Google Translate app.  
 
----
-
+---  
 **💡 Top 3 Local Tips**  
-1. Use **Suica/Pasmo cards** for seamless public transport.  
-2. Carry cash (JPY) – many smaller vendors don’t accept cards.  
-3. **Remove shoes** in traditional settings (e.g., ryokans, some restaurants).  
+1. **Transport**: Buy a Suica/Pasmo IC card for stress-free metro access.  
+2. **Cash is King**: Many places still use cash—withdraw yen at convenience stores or post offices.  
+3. **Etiquette**: Remove shoes in traditional restaurants, ryokans, and homes.  
 
----
-
+---  
 **✅ Quick Checklist Before You Go**  
-- ✅ Passport + visa confirmation (if required).  
-- ✅ Travel insurance + emergency contacts.  
-- ✅ Offline Japanese translation app (Google Translate!).  
-- ✅ Pack light + check weather forecast.  
-- ✅ Budget tracker (daily: ~$428 USD / 64k JPY).  
+- ✅ Passport with visa-free entry (if applicable).  
+- ✅ Suica/Pasmo card (buy at Tokyo stations).  
+- ✅ 448,500 JPY (~$3000) split as 50% cash + 50% card.  
+- ✅ Adaptor (Japan uses Type A/B plugs).  
+- ✅ Offline Google Translate (Japanese language pack).  
 
----
+---  
+Tokyo awaits with endless discovery—chase cherry blossoms, savor sushi, and embrace the blend of tradition and modernity. You’ve got this! 🗾✨  
 
-Safe travels and enjoy Tokyo’s blend of futuristic energy and traditional charm! Let me know if you need tweaks 😊
+*Safe travels and enjoy every moment!* 😊
 ============================================================
 ```
