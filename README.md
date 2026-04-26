@@ -246,7 +246,7 @@ Below are example logs from both client scripts. These are sample outputs and ma
 ### `single_agent_multi_mcp_client.py`
 
 ```text
-python single_agent_multi_mcp_client.py 
+python single_agent_multi_mcp_client.py
 
 Processing request of type ListToolsRequest
 Processing request of type CallToolRequest
@@ -264,7 +264,8 @@ Weather MCP response: The current weather in Paris is overcast with a temperatur
 ### `multi_agent_multi_mcp_client.py`
 
 ```text
-python multi_agent_multi_mcp_client.py 
+python multi_agent_multi_mcp_client.py
+
 ============================================================
   🌍 AI Travel Budget Planner
   Destination : Tokyo

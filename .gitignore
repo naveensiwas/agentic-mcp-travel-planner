@@ -201,6 +201,11 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# IDE Speacific
+*.xml
+*.iml
+*.env
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
