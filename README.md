@@ -1,6 +1,6 @@
 # 🌍 AI Travel Budget Planner — Multi-Agent MCP Application
 
-A multi-agent AI travel planning app built with **Model Context Protocol (MCP)**, **LangChain**, and **Groq LLM**.
+### A multi-agent AI travel and budget planner using MCP, LangChain, and Groq, where specialist agents collaborate across multiple MCP servers to generate a final personalized trip plan.
 
 It demonstrates how specialized agents can collaborate across multiple MCP servers to produce a consolidated, user-friendly travel plan.
 
