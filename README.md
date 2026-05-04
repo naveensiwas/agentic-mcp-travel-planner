@@ -1,22 +1,32 @@
-# 🌍 AI Travel Budget Planner — Multi-Agent MCP Application
+# 🌍 AI Travel Budget Planner — Multi-Agent & Single-Agent MCP Application
 
-A multi-agent AI travel planning app built with **Model Context Protocol (MCP)**, **LangChain**, and **Groq LLM**.
+AI travel planning app built with **Model Context Protocol (MCP)**, **LangChain**, and **Groq LLM**.
 
-It demonstrates how specialized agents can collaborate across multiple MCP servers to produce a consolidated, user-friendly travel plan.
+It demonstrates two distinct MCP client implementations:
+- **🧠 Multi-Agent Mode**: How specialized agents can collaborate across multiple MCP servers to produce a consolidated, user-friendly travel plan.
+- **🧪 Single-Agent Mode**: How a single tool-calling agent can directly query multiple MCP servers for testing and debugging.
 
 ---
 
 ## 📌 What This App Does
 
-Given trip inputs like destination, budget, and duration, the app:
+This project demonstrates two distinct MCP client implementations:
 
+### 🧠 Multi-Agent Mode
+Given trip inputs like destination, budget, and duration, the app:
 1. Collects destination research (weather, local tips, packing, accommodation)
 2. Computes budget/currency insights
 3. Synthesizes both reports into one final travel plan
 
 Example prompt:
-
 > "Plan a 7-day trip to Tokyo with a $3,000 budget."
+
+### 🧪 Single-Agent Mode
+A simplified demonstration that uses a single tool-calling agent to directly query multiple MCP servers:
+- Performs math calculations (addition, multiplication)
+- Fetches weather data from specified locations
+
+This mode is useful for testing individual MCP server connectivity and debugging tool integrations.
 
 ---
 
@@ -57,6 +67,8 @@ agentic-mcp-travel-planner/
 
 ## 🏗️ Architecture
 
+### 🧠 Multi-Agent Architecture
+
 ```text
 User Input (destination, budget_usd, num_days)
                 |
@@ -79,15 +91,61 @@ multi_agent_multi_mcp_client.py
 Final formatted travel plan
 ```
 
+**Best for**:
+- Complex workflows requiring multiple specialized agents
+- Coordinating different domains (travel, finance, etc.)
+- Scenarios needing report synthesis and consolidation
+- Production use cases with comprehensive planning needs
+
+### 🧪 Single-Agent Architecture
+
+```text
+User Input (math/weather query)
+                |
+                v
+single_agent_multi_mcp_client.py
+(run_single_agent_demo)
+   |
+   +--> Single Tool-Calling Agent
+          |
+          +--> math_server.py         [stdio]
+          +--> weather_server.py      [streamable_http]
+                |
+                v
+Direct MCP tool responses (math + weather)
+```
+
+**Best for**:
+- Testing individual MCP server connectivity
+- Debugging tool integrations and server responses
+- Simple, direct tool queries without orchestration
+- Development and proof-of-concept scenarios
+- Understanding MCP tool calling basics
+
+---
+
+## 📊 Comparison: Multi-Agent vs Single-Agent
+
+| Aspect | Multi-Agent | Single-Agent |
+|---|---|---|
+| **Client Script** | `multi_agent_multi_mcp_client.py` | `single_agent_multi_mcp_client.py` |
+| **Complexity** | High (multiple agents + orchestrator) | Low (single agent) |
+| **Agent Count** | 3+ specialized agents | 1 tool-calling agent |
+| **Tool Selection** | Agent-specific | All available tools |
+| **Use Case** | Complex travel planning | Tool testing & debugging |
+| **Output** | Synthesized travel plan | Direct tool responses |
+| **Setup Time** | Longer (all agents run) | Quick (minimal overhead) |
+
 ---
 
 ## 🤖 Agent Responsibilities
 
-| Agent | Module | MCP Tools | Responsibility |
-|---|---|---|---|
-| Travel Research Agent | `agents/travel_agent.py` | `get_weather`, `get_climate_type`, `get_destination_info`, `get_packing_list`, `estimate_accommodation_cost` | Destination/weather research and stay guidance |
-| Finance Agent | `agents/finance_agent.py` | `usd_to_currency`, `get_daily_budget`, `add`, `multiply` | Budget conversion, daily budget, arithmetic verification |
-| Orchestrator Agent | `agents/orchestrator.py` | *(none)* | Merges specialist reports into a single final plan |
+| Architecture | Agent / Component | Module | MCP Tools | Responsibility |
+|---|---|---|---|---|
+| Multi-Agent | Travel Research Agent | `agents/travel_agent.py` | `get_weather`, `get_climate_type`, `get_destination_info`, `get_packing_list`, `estimate_accommodation_cost` | Destination/weather research and stay guidance |
+| Multi-Agent | Finance Agent | `agents/finance_agent.py` | `usd_to_currency`, `get_daily_budget`, `add`, `multiply` | Budget conversion, daily budget, arithmetic verification |
+| Multi-Agent | Orchestrator Agent | `agents/orchestrator.py` | *(none)* | Merges specialist reports into a single final plan |
+| Single-Agent | Tool-Calling Agent | `single_agent_multi_mcp_client.py` | `add`, `multiply`, `get_weather` | Handles direct math and weather queries in a single-agent flow |
 
 ---
 
@@ -111,6 +169,10 @@ Final formatted travel plan
 - Provides destination info, packing suggestions, and accommodation estimate
 
 ---
+
+## ℹ️ MCP Implementation Note
+- All MCP servers and tools used in this project are in\-house developed. 
+- They include custom hardcoded logic tailored to this application’s travel and budget planning workflows.
 
 ## ⚙️ Setup
 
@@ -175,7 +237,9 @@ This script runs sample math + weather queries through one tool-calling agent.
 
 ---
 
-## 🔄 Execution Flow (Multi-Agent)
+## 🔄 Execution Flow
+
+### Multi-Agent Flow
 
 1. `multi_agent_multi_mcp_client.py` calls `plan_trip(destination, budget_usd, num_days)`
 2. `utils.display.print_banner()` prints a trip header
@@ -184,16 +248,34 @@ This script runs sample math + weather queries through one tool-calling agent.
 5. `agents/orchestrator.py` synthesizes both into the final plan
 6. `utils.display.print_plan()` prints final output
 
+### Single-Agent Flow
+
+1. `single_agent_multi_mcp_client.py` calls `run_single_agent_demo()`
+2. Single tool-calling agent receives user queries
+3. Agent introspects available tools from MCP servers:
+   - Math tools: `add`, `multiply`
+   - Weather tools: `get_weather`
+4. Agent executes the appropriate tool based on query context
+5. Direct tool responses are returned to the user without synthesis
+
 ---
 
 ## 🧩 Key Configuration
 
 In `config/settings.py`:
-- `get_llm()` builds a shared `ChatGroq` client
-- `get_server_configs()` defines MCP transport config for all servers
-- `CURRENCY_MAP` maps known destinations to local currency (fallback in client logic: `EUR`)
+- `get_llm()` builds a shared `ChatGroq` client used by **both Multi-Agent and Single-Agent** modes
+- `get_server_configs()` defines MCP transport config for all servers (applies to **both modes**)
+- `CURRENCY_MAP` maps known destinations to local currency (applies to **Multi-Agent mode**)
 
-Current mapped destinations:
+### Multi-Agent Specific
+- Agent system prompts and tool bindings defined in `agents/travel_agent.py`, `agents/finance_agent.py`
+- Orchestrator synthesis logic in `agents/orchestrator.py`
+
+### Single-Agent Specific
+- Single agent prompt and tool discovery defined in `single_agent_multi_mcp_client.py`
+- All registered MCP servers are automatically available to the agent
+
+### Current Mapped Destinations
 - `tokyo -> JPY`
 - `paris -> EUR`
 - `new york -> USD`
@@ -207,7 +289,8 @@ Current mapped destinations:
 
 1. Create a new server file in `servers/`.
 2. Add its config in `config/settings.py` (`get_server_configs`).
-3. Wire it into the relevant agent module in `agents/`.
+3. **For Multi-Agent**: Wire it into the relevant agent module in `agents/` (e.g., add to `travel_agent.py` or `finance_agent.py`).
+4. **For Single-Agent**: The new server tools will automatically be available to the single tool-calling agent once registered in `get_server_configs()`.
 
 ### Add a new destination
 
@@ -220,6 +303,8 @@ Update the relevant dictionaries/constants in:
 
 ## 🛠️ Troubleshooting
 
+### General Issues
+
 - `GROQ_API_KEY not set`:
   - Ensure `.env` exists and contains `GROQ_API_KEY=...`.
 - Weather server connection issues:
@@ -228,6 +313,28 @@ Update the relevant dictionaries/constants in:
   - Stop the process using port 8000, then restart weather server.
 - Import/dependency errors:
   - Reinstall dependencies from `requirements.txt` or run `uv sync`.
+
+### Multi-Agent Specific Issues
+
+- **Agent reporting empty results**:
+  - Check that the agent has access to its designated MCP servers.
+  - Verify `get_server_configs()` in `config/settings.py` is configured correctly.
+  - Ensure the LLM can parse tool definitions properly.
+
+- **Orchestrator synthesis fails**:
+  - Confirm that both Travel Agent and Finance Agent reports are generated before orchestration.
+  - Check `agents/orchestrator.py` for proper prompt structure.
+
+### Single-Agent Specific Issues
+
+- **Tool not being called**:
+  - Verify tool definitions are registered in the respective MCP server.
+  - Check that the agent's prompt can trigger tool selection based on the query.
+  - Review agent logs to see available tools at inference time.
+
+- **Unexpected tool response**:
+  - Directly test the MCP server manually to verify tool behavior.
+  - Single-agent relies on tool definitions being correct; verify in the server code.
 
 ---
 
