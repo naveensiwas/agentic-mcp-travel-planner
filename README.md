@@ -1,4 +1,4 @@
-# 🌍 AI Travel Budget Planner — Multi-Agent & Single-Agent MCP Application
+# 🌍 AI Travel Budget Planner — An MCP-Powered Application Using Single-Agent and Multi-Agent Workflows
 
 AI travel planning app built with **Model Context Protocol (MCP)**, **LangChain**, and **Groq LLM**.
 
