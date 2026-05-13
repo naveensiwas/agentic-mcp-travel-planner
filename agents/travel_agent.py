@@ -47,7 +47,7 @@ async def run_travel_agent(destination: str, num_days: int) -> str:
 
     # Initialise the MCP client and collect tools from both servers
     client = MultiServerMCPClient(servers)
-    tools  = await client.get_tools()
+    tools = await client.get_tools()
 
     # Build a tool-calling agent with the aggregated tool set
     agent = create_agent(model=get_llm(), tools=tools)

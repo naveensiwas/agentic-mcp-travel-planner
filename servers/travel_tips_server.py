@@ -203,7 +203,7 @@ def estimate_accommodation_cost(destination: str, num_days: int, budget_level: s
     }
 
     # Normalise both inputs for consistent lookup
-    key   = destination.lower().strip()
+    key = destination.lower().strip()
     level = budget_level.lower().strip()
 
     if key not in costs:
@@ -212,7 +212,7 @@ def estimate_accommodation_cost(destination: str, num_days: int, budget_level: s
         return f"Budget level must be: budget, mid-range, or luxury."
 
     per_night = costs[key][level]
-    total     = per_night * num_days  # Simple multiplication — no hidden fees assumed
+    total = per_night * num_days  # Simple multiplication — no hidden fees assumed
 
     return (
         f"Accommodation in {destination.title()} ({level}): "

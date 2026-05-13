@@ -27,7 +27,7 @@ Environment (.env):
 import asyncio
 from agents import run_travel_agent, run_finance_agent, run_orchestrator
 from config import CURRENCY_MAP
-from utils  import print_banner, print_plan
+from utils import print_banner, print_plan
 
 
 async def plan_trip(destination: str, budget_usd: float, num_days: int) -> str:
@@ -51,7 +51,7 @@ async def plan_trip(destination: str, budget_usd: float, num_days: int) -> str:
     # ── 3. Run specialist agents sequentially ─────────────────────────────────
     # Sequential execution keeps subprocess/server interactions simpler and avoids
     # port or resource conflicts between the two stdio server groups.
-    travel_report  = await run_travel_agent(destination, num_days)
+    travel_report = await run_travel_agent(destination, num_days)
     print("\n✅ Travel Research Agent completed. Report:")
     print(travel_report)
 

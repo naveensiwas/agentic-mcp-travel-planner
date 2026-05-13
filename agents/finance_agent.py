@@ -52,7 +52,7 @@ async def run_finance_agent(
 
     # Initialise the MCP client and collect tools from both servers
     client = MultiServerMCPClient(servers)
-    tools  = await client.get_tools()
+    tools = await client.get_tools()
 
     # Build a tool-calling agent with the aggregated tool set
     agent = create_agent(model=get_llm(), tools=tools)

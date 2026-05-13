@@ -12,7 +12,7 @@ Functions:
 
 # Width of the separator lines used throughout the console output
 DIVIDER_WIDTH = 60
-DIVIDER       = "=" * DIVIDER_WIDTH
+DIVIDER = "=" * DIVIDER_WIDTH
 
 
 def print_banner(destination: str, budget_usd: float, num_days: int) -> None:

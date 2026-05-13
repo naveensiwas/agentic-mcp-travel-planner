@@ -62,7 +62,7 @@ async def main():
     )
     print("Math MCP response:", math_response["messages"][-1].content)
 
-    # Query 2: Weather — agent should call get_weather("Paris")
+    # Query 2: Weather — agent should call get_weather("ParisEditor ")
     weather_response = await agent.ainvoke(
         {"messages": [{"role": "user", "content": "What is the weather in Paris?"}]}
     )
